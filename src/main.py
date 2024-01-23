@@ -13,9 +13,10 @@ df2 = pd.read_csv(DATA1, index_col= 'Date', parse_dates = True)\
     .sort_index(ascending=True)
 
 ## Get necesary predictive values only.
-dfx = df2['Adj Close']
-dfy = df1["Adj Close"]
-dfx.corr(dfy)
+# Use double brackets to avoid sending pandas.core.series.Series instead of DataFrame
+dfx = df2[['Adj Close']]
+dfy = df1[["Adj Close"]]
+df1['Adj Close'].corr(df2['Adj Close'])
 
 ## Split
 train_size = 0.8
@@ -33,8 +34,7 @@ y_train, y_test = dfy.iloc[:y_train_size], dfy.iloc[y_test_size:]
 
 # Regression
 regressor = LinearRegression()
-# Use Values to avoid sending pandas.core.series.Series instead of DataFrame
-regressor.fit(X=x_train.values, y=y_train.values)  
+regressor.fit(X=x_train, y=y_train)  
 y_pred = regressor.predict(x_test)
 print(y_pred)
 
