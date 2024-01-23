@@ -14,10 +14,6 @@ dfx = pd.read_csv(DATA, index_col= 'Date', parse_dates = True)
 dfx = dfx["Adj Close"]
 dfy = dfy["Adj Close"]
 
-# Preprocess
-# dfy['Date'] = pd.to_datetime(dfy['Date']) #  We did this during import
-# dfy.set_index('Date',inplace=True)  #  We did this during import
-
 ## Split
 x_train, x_test, y_train, y_test = train_test_split(
     dfx,dfy,test_size =.2, random_state =0) 
