@@ -6,31 +6,38 @@ from sklearn.model_selection import train_test_split
 
 # Ingest
 DATA =  "src/assets/BTC-USD.csv"
-DATA1 = 'src/assets/ETH-USD.ETH-USD.csv'
-dfy = pd.read_csv(DATA, index_col= 'Date', parse_dates = True)
-dfx = pd.read_csv(DATA, index_col= 'Date', parse_dates = True)
+DATA1 = 'src/assets/ETH-USD.csv'
+df1 = pd.read_csv(DATA)#, index_col= 'Date', parse_dates = True)
+df2 = pd.read_csv(DATA1)#, index_col= 'Date', parse_dates = True)
 
 ## Get necesary predictive values only.
-dfx = dfx["Adj Close"]
-dfy = dfy["Adj Close"]
+dfx = df2['Adj Close'].sort_index(ascending=False)
+dfy = df1["Adj Close"].sort_index(ascending=False)
+dfx.corr(dfy)
 
 ## Split
-x_train, x_test, y_train, y_test = train_test_split(
-    dfx,dfy,test_size =.2, random_state =0) 
+train_size = 0.8
+if dfx.shape[0] != dfy.shape[0]:
+    print("Sample Sizes ERROR")
+    exit
+x_train_size = round(dfx.shape[0] * train_size)  # We only need the rows.
+x_test_size =  x_train_size 
+y_train_size = round(dfx.shape[0] * train_size)  # We only need the rows.
+y_test_size = y_train_size 
 
-# Describe
-dfy.describe()
-dfx.describe()
+x_train, x_test = dfx.iloc[:x_train_size], dfx.iloc[x_test_size:]
+y_train, y_test = dfy.iloc[:y_train_size], dfy.iloc[y_test_size:]
+
 
 # Regression
 regressor = LinearRegression()
-regressor.fit(x_train,y_train)
+regressor.fit(X=x_train,y=y_train)
 #using fit works like a statement
     #FIT this OBJECT to THESE PARAMETERS 
 #SOME METHODS TRANSFORM OBJECTS 
 #SOME USE THEM AS INPUT
 y_pred = regressor.predict(x_test)
-
+LinearRegression.fit()
 
 
 
