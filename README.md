@@ -8,7 +8,8 @@ Small Example of a simple linear regression script.
  ![Python](https://img.shields.io/badge/Python-3.11.7-Blue?labelColor=White&style=flat). It is recommended to create a virtual enviorment to use it.
 
 ```sh
-git clone URL
+git clone https://github.com/hriva/sample-linear-regression.git
+cd sample-linear-regression
 
 # Create virt env
 python3.11 venv -m .venv
