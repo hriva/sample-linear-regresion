@@ -29,7 +29,7 @@ Small linear regression sample implementation.
 For this example we are using the Bitcoin Prices in a Monthly basis as the **dependant** variable. i.e., the variable we want to predict. 
 And we use the Ethereum Prices in a Montly basis as the **independant** variable. i.e., the variable we are using **to** predict the Bitcoin price. 
 
-> DISCLAIMER: this is simplified given that yahoo overs good quality data. Usually you more steps to clean and wrangle data.
+> DISCLAIMER: this is simplified given that yahoo offers good quality data. Usually you need more steps to clean and wrangle data.
 
 ## 1. Import libraries
 

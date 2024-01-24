@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.11
+#!/usr/bin/env python3
 
 import pandas as pd
 from sklearn.linear_model import LinearRegression
