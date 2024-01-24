@@ -18,8 +18,8 @@ pip install -U pip setuptools wheel
 pip install -rU requirements.txt
 
 # Run
-chmod +x src/main.py
-./src/main.py
+chmod +x src/bitcoin-ethereum.py
+./src/bitcoin-ethereum.py
 ```
 # Explanation
 
@@ -247,10 +247,10 @@ plt.show()
 
 
     
-![png](main_files/main_22_0.png)
+![png](bitcoin-ethereum_files/bitcoin-ethereum_22_0.png)
     
 
 
 
     
-![png](main_files/main_22_1.png)
+![png](bitcoin-ethereum_files/bitcoin-ethereum_22_1.png)
