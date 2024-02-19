@@ -12,10 +12,10 @@ git clone --depth 1 https://github.com/hriva/sample-linear-regression.git
 cd sample-linear-regression
 
 # Create virt env
-python3.11 venv -m .venv
-./venv/bin/activate
-pip install -U pip setuptools wheel
-pip install -rU requirements.txt
+virtualenv -p python3 sample-linear-regression
+source sample-linear-regression/bin/activate
+cd sample-linear-regression
+pip3 install -r requirements.txt
 
 # Run
 chmod +x src/bitcoin-ethereum.py
